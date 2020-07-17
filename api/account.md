@@ -1,0 +1,101 @@
+## 账户查询
+GET
+`
+/api/v1/members/accounts
+`
+
+参数在query部分传递
+
+```
+  access_key: 从平台获取的access_key
+  signature: 签名
+  tonce: 时间戳，精确到秒
+```
+
+返回
+
+```
+{
+    "head": {
+        "code": "1000",
+        "msg": "Success."
+    },
+    "body": [
+        {
+            "id": 4772326,
+            "created_at": 1534992905,
+            "updated_at": 1534992905,
+            "member_id": 140582,
+            "currency_id": 2,
+            "balance": "0",
+            "locked": "0",
+            "in": null,
+            "out": null,
+            "default_withdraw_fund_source_id": null,
+            "default_withdraw_bank_source_id": null,
+            "currency": "btc",
+            "currency_key": "satoshi",
+            "address": "1BJUAZRVYwrxAR5DW2perHLhD2eDUDnwX3",
+            "logo": "/icons/btc.png",
+            "coin_visible": true,
+            "withdraw": true,
+            "tradable": true,
+            "depositable": true,
+            "withdraw_limit": "0.006",
+            "token_decimals": 0,
+            "withdraw_channels": [
+                {
+                    "id": "200",
+                    "key": "satoshi",
+                    "currency": "btc",
+                    "fixed": 8,
+                    "fee": "0.0005",
+                    "inuse": true,
+                    "type": "WithdrawChannelSatoshi",
+                    "agent_fee_type": "",
+                    "agent_fee": "0",
+                    "agent_fee_currency": ""
+                }
+            ]
+        },
+        {
+            "id": 4772327,
+            "created_at": 1534992905,
+            "updated_at": 1534992905,
+            "member_id": 140582,
+            "currency_id": 4,
+            "balance": "0",
+            "locked": "0",
+            "in": null,
+            "out": null,
+            "default_withdraw_fund_source_id": null,
+            "default_withdraw_bank_source_id": null,
+            "currency": "eth",
+            "currency_key": "ethereum",
+            "address": "",
+            "logo": "/icons/eth.png",
+            "coin_visible": true,
+            "withdraw": true,
+            "tradable": true,
+            "depositable": true,
+            "withdraw_limit": "0.15",
+            "token_decimals": 18,
+            "withdraw_channels": [
+                {
+                    "id": "800",
+                    "key": "ethereum",
+                    "currency": "eth",
+                    "fixed": 8,
+                    "fee": "0.01",
+                    "inuse": true,
+                    "type": "WithdrawChannelEthereum",
+                    "agent_fee_type": "",
+                    "agent_fee": "0",
+                    "agent_fee_currency": ""
+                }
+            ]
+        },
+        ...
+    ]
+}
+```

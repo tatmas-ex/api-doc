@@ -1,0 +1,26 @@
+
+## 全市场撤单接口
+POST
+`
+/api/v1/orders/clear
+`
+
+参数在query部分传递
+
+```
+  access_key: 从平台获取的access_key
+  signature: 签名
+  market: 市场名称
+  tonce: 时间戳，精确到秒
+```
+返回示例
+
+```
+{
+    "head": {
+        "code": "1000",
+        "msg": "Success."
+    },
+    "body": null
+}
+```

@@ -1,0 +1,103 @@
+
+## 下多单接口
+POST
+`
+/api/v1/orders/multi2
+`
+
+```
+注：本接口用于下成交单，单次请求仅处理前十笔
+```
+
+
+```
+  access_key: 从平台获取的access_key
+  market: 市场，例如: btceth
+  signature: 签名
+  tonce: 时间戳，精确到秒
+  orders: 多单数组的json字符串
+```
+
+orders参数示例
+
+```json
+[
+	{
+  		price: 价格,
+	  	volume: 数量,
+  		side: "buy"
+	},
+	{
+	  	price: 价格,
+  		volume: 数量,
+  		side: "sell"
+	}
+]
+```
+
+返回示例
+
+```
+{
+    "head": {
+        "code": "1000",
+        "msg": "Success."
+    },
+    "body": [
+            {
+                "id": 375404588,
+                "created_at": 1565580288,
+                "updated_at": 1565580288,
+                "ask": 70,
+                "bid": 30,
+                "price": "100",
+                "volume": "17.43",
+                "origin_volume": "17.43",
+                "type": "OrderAsk",
+                "member_id": 17605,
+                "sn": "",
+                "source": "APIv4",
+                "ord_type": "limit",
+                "locked": "17.43",
+                "origin_locked": "17.43",
+                "funds_received": "0",
+                "trades_count": 0,
+                "new_client_order_id": "",
+                "market": "btcusdt",
+                "state": "wait",
+                "base_unit": "btc",
+                "quote_unit": "usdt",
+                "avg_price": "0",
+                "total_ask_fee": "0",
+                "total_bid_fee": "0"
+            },
+            {
+                "id": 371597248,
+                "created_at": 1565499457,
+                "updated_at": 1565499457,
+                "ask": 70,
+                "bid": 30,
+                "price": "100",
+                "volume": "80.63",
+                "origin_volume": "80.63",
+                "type": "OrderAsk",
+                "member_id": 17605,
+                "sn": "",
+                "source": "APIv4-iOS",
+                "ord_type": "limit",
+                "locked": "80.63",
+                "origin_locked": "80.63",
+                "funds_received": "0",
+                "trades_count": 0,
+                "new_client_order_id": "",
+                "market": "btcusdt",
+                "state": "wait",
+                "base_unit": "btc",
+                "quote_unit": "usdt",
+                "avg_price": "0",
+                "total_ask_fee": "0",
+                "total_bid_fee": "0"
+            }
+        ]
+}
+```
